@@ -1,14 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Students } from '../../modules/dashboard/pages/students/models';
+import { Student } from '../../modules/dashboard/pages/students/models';
 
 @Pipe({
   name: 'fullName',
-  standalone: false
+  standalone: false,
 })
 export class FullNamePipe implements PipeTransform {
-
-  transform(value: Students, type?: 'uppercase' | 'lowercase'): string {
-
+  transform(value: Student, type?: 'uppercase' | 'lowercase'): string {
     let result = value;
     // if (type === 'lowercase')
     //   result = result.toLowerCase();

@@ -9,10 +9,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { StudentsModule } from './pages/students/students.module';
-
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
-  declarations: [DashboardComponent, ToolbarComponent],
+  declarations: [DashboardComponent, ToolbarComponent, NavMenuComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
@@ -21,10 +22,9 @@ import { StudentsModule } from './pages/students/students.module';
     MatToolbarModule,
     MatIconModule,
     StudentsModule,
+    MatListModule,
   ],
-  exports: [
-    DashboardComponent,
-    ToolbarComponent
-  ]
+  exports: [DashboardComponent, ToolbarComponent],
+  providers: [],
 })
-export class DashboardModule { }
+export class DashboardModule {}

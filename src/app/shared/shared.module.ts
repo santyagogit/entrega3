@@ -5,20 +5,19 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { MultiplyDirective } from './directives/multiply.directive';
 import { Size20Directive } from './directives/size20.directive';
 
-
-
 @NgModule({
   declarations: [
     FullNamePipe,
     HighlightDirective,
     MultiplyDirective,
-    Size20Directive
+    Size20Directive,
   ],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [
-    FullNamePipe, HighlightDirective, MultiplyDirective, Size20Directive
-  ]
+    FullNamePipe,
+    HighlightDirective,
+    MultiplyDirective,
+    Size20Directive,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

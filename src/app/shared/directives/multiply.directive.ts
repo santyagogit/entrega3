@@ -1,19 +1,24 @@
-import { Directive, ElementRef, Input, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Input,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 
 @Directive({
   selector: '[appMultiply]',
-  standalone: false
+  standalone: false,
 })
 export class MultiplyDirective {
-
   @Input()
   appMultiply? = 3;
 
   constructor(
     private elementRef: ElementRef,
     private viewContainerRef: ViewContainerRef,
-    private templateRef: TemplateRef<unknown>) {
-
+    private templateRef: TemplateRef<unknown>,
+  ) {
     this.updateViewContainer();
   }
 
@@ -25,5 +30,4 @@ export class MultiplyDirective {
       this.viewContainerRef.createEmbeddedView(this.templateRef);
     }
   }
-
 }

@@ -5,15 +5,8 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-
 @NgModule({
-  declarations: [
-    LoginComponent,
-  ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    MatSlideToggleModule
-  ]
+  declarations: [LoginComponent],
+  imports: [CommonModule, AuthRoutingModule, MatSlideToggleModule],
 })
-export class AuthModule { }
+export class AuthModule {}

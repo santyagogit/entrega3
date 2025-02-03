@@ -1,17 +1,24 @@
-import { Directive, ElementRef, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 
 @Directive({
   selector: '[appSize20]',
-  standalone: false
+  standalone: false,
 })
 export class Size20Directive implements OnChanges {
-
   constructor(private elementRef: ElementRef) {
     this.setFontSize();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['appSize20']) { this.setFontSize(); }
+    if (changes['appSize20']) {
+      this.setFontSize();
+    }
   }
 
   private setFontSize(): void {

@@ -3,12 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { EnrollmentsRoutingModule } from './enrollments-routing.module';
 
-
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    EnrollmentsRoutingModule
-  ]
+  imports: [CommonModule, EnrollmentsRoutingModule],
 })
-export class EnrollmentsModule { }
+export class EnrollmentsModule {}

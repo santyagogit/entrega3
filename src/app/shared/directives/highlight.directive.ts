@@ -1,17 +1,23 @@
-import { Directive, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 
 @Directive({
   selector: '[appHighlight]',
-  standalone: false
+  standalone: false,
 })
 export class HighlightDirective implements OnChanges {
   @Input() appHighlight = 'yellow';
   @Input() bolder = false;
   @Output() colorUpdated = new EventEmitter();
 
-  constructor(
-    private elementRef: ElementRef
-  ) {
+  constructor(private elementRef: ElementRef) {
     this.elementRef.nativeElement.style.backgroundColor = this.appHighlight;
   }
 
@@ -26,13 +32,14 @@ export class HighlightDirective implements OnChanges {
   }
 
   updateColor() {
-    this.elementRef.nativeElement.style.backgroundColor = this.appHighlight || 'yellow';
+    this.elementRef.nativeElement.style.backgroundColor =
+      this.appHighlight || 'yellow';
     this.colorUpdated.emit();
   }
 
   updateFontWeight() {
-    this.elementRef.nativeElement.style.fontWeight = this.bolder ? 'bolder' : 'unset';
+    this.elementRef.nativeElement.style.fontWeight = this.bolder
+      ? 'bolder'
+      : 'unset';
   }
-
 }
-
