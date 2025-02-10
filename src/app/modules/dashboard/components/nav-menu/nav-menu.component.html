@@ -1,21 +1,15 @@
 <mat-nav-list>
-    <a
-        mat-list-item
-        routerLink="home"
-        routerLinkActive
-        #inicioLink="routerLinkActive"
-        [activated]="inicioLink.isActive"
-        routerLinkActive="active"
-        >Home</a
-    >
-    <a
-        mat-list-item
-        routerLink="students"
-        routerLinkActive
-        #studentsLink="routerLinkActive"
-        [activated]="studentsLink.isActive"
-        >Estudiantes</a
-    >
+    @for (item of linkItems; track $index) {
+        <a
+            mat-list-item
+            [routerLink]="item.path"
+            routerLinkActive
+            #activeLink="routerLinkActive"
+            [activated]="activeLink.isActive"
+            routerLinkActive="active"
+            >{{ item.label }}</a
+        >
+    }
 
     <a mat-list-item (click)="logout()" routerLinkActive="active"
         >Close session</a

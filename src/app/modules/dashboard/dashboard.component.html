@@ -1,12 +1,12 @@
 <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <app-nav-menu></app-nav-menu>
-  </mat-drawer>
+    <mat-drawer [opened]="true" #drawer class="example-sidenav" mode="side">
+        <app-nav-menu></app-nav-menu>
+    </mat-drawer>
 
-  <div class="example-sidenav-content">
-    <app-toolbar (drawerToggle)="drawer.toggle()"></app-toolbar>
-    <main style="padding: 1rem">
-      <router-outlet></router-outlet>
-    </main>
-  </div>
+    <div class="example-sidenav-content">
+        <app-toolbar (drawerToggle)="drawer.toggle()"></app-toolbar>
+        <main style="padding: 1rem">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
 </mat-drawer-container>

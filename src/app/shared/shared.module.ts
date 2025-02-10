@@ -4,7 +4,15 @@ import { FullNamePipe } from './pipes/full-name.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
 import { MultiplyDirective } from './directives/multiply.directive';
 import { Size20Directive } from './directives/size20.directive';
-
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     FullNamePipe,
@@ -18,6 +26,16 @@ import { Size20Directive } from './directives/size20.directive';
     HighlightDirective,
     MultiplyDirective,
     Size20Directive,
+    MatTableModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatCardModule
+
   ],
 })
-export class SharedModule {}
+export class SharedModule { }
