@@ -49,15 +49,15 @@ export class StudentsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // this.loadStudentsPromise();
-    // this.loadStudentsObersavable();
+    this.loadStudentsObersavable();
     // this.subscribeToInterval();
     // this.loadFrutasAndRoles();
     // this.loadFrutasWithRoles();
-    this.rolesAndFruits$ = this.studentsService.getRoles().pipe(
-      concatMap((roles) => this.studentsService.getFruits()
-        .pipe(
-          map(fruits => [...roles, ...fruits])
-        )));
+    // this.rolesAndFruits$ = this.studentsService.getRoles().pipe(
+    //   concatMap((roles) => this.studentsService.getFruits()
+    //     .pipe(
+    //       map(fruits => [...roles, ...fruits])
+    //     )));
   }
 
   subscribeToInterval(): void {
@@ -98,26 +98,6 @@ export class StudentsComponent implements OnInit, OnDestroy {
     })
   }
 
-  // loadFrutasWithRoles(): void {
-  //   this.studentsService.getRoles().pipe(
-  //     concatMap((roles) => this.studentsService.getFruits()
-  //       .pipe(
-  //         map(fruits => [...roles, ...fruits])
-  //       )))
-  //     .subscribe({
-  //       next: (result) => {
-  //         console.log(result);
-  //       },
-  //       error: (error) => {
-  //         console.log(error);
-  //         this.hasError = true;
-  //       },
-  //       complete: () => {
-  //         this.isLoading = false;
-  //       }
-  //     });
-  // }
-
   loadStudentsPromise() {
     this.isLoading = true;
     this.studentsService.getStudentsPromise().then((students) => {
@@ -127,6 +107,19 @@ export class StudentsComponent implements OnInit, OnDestroy {
       .finally(() => {
         this.isLoading = false;
       });
+  }
+
+  openFormDialog(editingStudent?: Student): void {
+    this.matDialog.open(StudentDialogFormComponent, { data: { editingStudent } }).afterClosed().subscribe({
+      next: (result) => {
+        console.log(result);
+        if (!!result) {
+          if (!!editingStudent) {
+            this.getStudentDetails(editingStudent.id);
+          }
+        }
+      }
+    });
   }
 
   loadStudentsObersavable() {
@@ -182,9 +175,10 @@ export class StudentsComponent implements OnInit, OnDestroy {
   }
 
   getStudentDetails(id: string) {
-    //   this.studentService.getStudentById(id).subscribe((student) => {
-    //     student && (this.selectedStudent = student);
-    //   });
+    this.studentsService.getStudentById(id).pipe(take(1)).subscribe((student) => {
+      student && (this.selectedStudent = student);
+      console.log(student);
+    })
   }
 
   onColorUpdated() {

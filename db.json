@@ -1,0 +1,40 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "name": "Angular",
+      "price": 1000
+    },
+    {
+      "id": "2",
+      "name": "React",
+      "price": 9000
+    },
+    {
+      "id": "3",
+      "name": "Vue.js",
+      "price": 5000
+    },
+    {
+      "id": "4",
+      "name": "Node.js",
+      "price": 7000
+    },
+    {
+      "id": "5",
+      "name": "Blender",
+      "price": 3000
+    },
+    {
+      "id": "cceb",
+      "name": "CorelDraw ed"
+    }
+  ],
+  "teachers": [
+    {
+      "id": "asd",
+      "name": "Sensei",
+      "courseId": "5"
+    }
+  ]
+}

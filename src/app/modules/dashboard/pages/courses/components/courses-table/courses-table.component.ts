@@ -11,7 +11,7 @@ import { AuthService } from '../../../../../../core/services/auth.service';
   styleUrl: './courses-table.component.scss'
 })
 export class CoursesTableComponent {
-  displayedColumns: string[] = ['id', 'name', 'description', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'actions'];
 
   @Input() dataSource: Course[] = [];
 

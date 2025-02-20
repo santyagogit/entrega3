@@ -1,5 +1,8 @@
+import { Teacher } from "../../../teachers/models";
+
 export interface Course {
-    id: number;
+    id: string;
     name: string;
-    description: string;
+    teachers?: Teacher[]
+
 }

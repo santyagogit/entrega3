@@ -43,6 +43,7 @@ export class AuthService {
 
         if (loginResult) {
             localStorage.setItem('authUser', loginResult.accessToken);
+            console.log('authUser');
             this._authUser$.next(loginResult);
             this.router.navigate(['dashboard', 'home']);
         } else {

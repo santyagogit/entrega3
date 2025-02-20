@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Student } from "../../modules/dashboard/pages/students/models";
-import { delay, interval, Observable, of } from "rxjs";
+import { delay, filter, find, interval, map, Observable, of } from "rxjs";
 
 @Injectable({
     providedIn: "root"
@@ -38,8 +38,15 @@ export class StudentsService {
                 subscriber.next(students);
                 // subscriber.error(new Error("Error fetching students"));
                 // subscriber.complete();
-            }, 5000);
+            }, 1000);
         });
+    }
+
+    getStudentById(id: string): Observable<Student> {
+        return this.getStudentsObservable().pipe(
+            map(students => students.find(student => student.id))
+        ) as Observable<Student>
+
     }
 
     getInterval(): Observable<number> {

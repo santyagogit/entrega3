@@ -44,7 +44,7 @@ export class CoursesComponent implements OnInit {
   onDelete(id: string): void {
     if (confirm("Esta seguro de eliminar el curso?")) {
       this.isLoading = true;
-      this.courseService.deleteCourseById(parseInt(id)).subscribe({
+      this.courseService.deleteCourseById(id).subscribe({
         next: (courses) => {
           this.courses = [...courses];
         },
@@ -73,7 +73,7 @@ export class CoursesComponent implements OnInit {
     });
   }
 
-  updateCourse(data: { id: number, name: string, description: string }): void {
+  updateCourse(data: { id: string, name: string, description: string }): void {
     this.isLoading = true;
     this.courseService.updateCourseById(data).subscribe({
       next: (courses) => {
